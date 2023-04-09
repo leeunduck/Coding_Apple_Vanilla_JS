@@ -8,13 +8,29 @@
     <link rel="stylesheet" type="text/css" href="./index.css" />
   </head>
   <body>
-    <div id="alert-box">알림창임</div>
-    <button onclick="alertBox('아이디를 입력하세요')">ID</button>
-    <button onclick="alertBox('비밀번호를 입력하세요')">Password</button>
+    <div class="alert-box" id="alert">
+      <p id="title">알림창임</p>
+      <button onclick="closeAlert('none')">닫기</button>
+    </div>
+
+    <button onclick="alertId('아이디를 입력하세요', 'block')">버튼1</button>
+    <button onclick="alertPassword('비밀번호를 입력하세요', 'block')">
+      버튼2
+    </button>
 
     <script>
-      function alertBox(hole) {
-        document.getElementById("alert-box").innerText = hole;
+      function alertId(text, display) {
+        document.getElementById("title").innerHTML = text;
+        document.getElementById("alert").style.display = display;
+      }
+
+      function alertPassword(text, display) {
+        document.getElementById("title").innerHTML = text;
+        document.getElementById("alert").style.display = display;
+      }
+
+      function closeAlert(display) {
+        document.getElementById("alert").style.display = display;
       }
     </script>
   </body>
