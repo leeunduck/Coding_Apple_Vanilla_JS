@@ -20,18 +20,20 @@
 
     <script>
       function alertId(text, display) {
-        document.getElementById("title").innerHTML = text;
-        document.getElementById("alert").style.display = display;
+        document.querySelectorAll("#title")[0].innerHTML = text;
+        document.querySelectorAll("#alert")[0].style.display = display;
       }
 
       function alertPassword(text, display) {
-        document.getElementById("title").innerHTML = text;
-        document.getElementById("alert").style.display = display;
+        document.querySelectorAll("#title")[0].innerHTML = text;
+        document.querySelectorAll("#alert")[0].style.display = display;
       }
 
-      document.getElementById("close").addEventListener("click", function () {
-        document.getElementById("alert").style.display = "none";
-      });
+      document
+        .querySelectorAll("#close")[0]
+        .addEventListener("click", function () {
+          document.querySelectorAll("#alert")[0].style.display = "none";
+        });
     </script>
   </body>
 </html>
