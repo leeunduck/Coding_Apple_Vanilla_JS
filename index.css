@@ -4,3 +4,10 @@
   color: white;
   border-radius: 5px;
 }
+
+.list-group {
+  display: none;
+}
+.show {
+  display: block;
+}
