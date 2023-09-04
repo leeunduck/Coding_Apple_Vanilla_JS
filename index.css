@@ -7,6 +7,11 @@
 
 .list-group {
   display: none;
+  margin-bottom: 2rem;
+}
+
+#alert-close-btn {
+  display: none;
 }
 .show {
   display: block;

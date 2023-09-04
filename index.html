@@ -2,65 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./index.css" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"></script>
+    <title>코딩애플 Vanila JS</title>
   </head>
   <body>
-    <div class="alert-box" id="alert">
-      <p id="title">알림창임</p>
-      <button id="close">닫기</button>
-    </div>
-
-    <button onclick="alertId('아이디를 입력하세요', 'block')">버튼1</button>
-    <button onclick="alertPassword('비밀번호를 입력하세요', 'block')">
-      버튼2
-    </button>
-
-    <!-- <div class="black-bg">
-      <div class="white-bg">
-        <h4>로그인하세요</h4>
-        <button class="btn btn-danger" id="close">닫기</button>
-      </div>
-    </div> -->
-
-    <p class="hello">안녕</p>
-    <button class="test-btn1">사라짐</button>
-    <button class="test-btn2">나타남</button>
-
-    <script>
-      $(".hello").html("바이");
-      $(".hello").css("color", "blue");
-      $(".test-btn1").on("click", function () {
-        $(".hello").fadeOut();
-      });
-      $(".test-btn2").on("click", function () {
-        $(".hello").fadeIn();
-      });
-    </script>
-
-    <script>
-      function alertId(text, display) {
-        document.querySelectorAll("#title")[0].innerHTML = text;
-        document.querySelectorAll("#alert")[0].style.display = display;
-      }
-
-      function alertPassword(text, display) {
-        document.querySelectorAll("#title")[0].innerHTML = text;
-        document.querySelectorAll("#alert")[0].style.display = display;
-      }
-
-      document
-        .querySelectorAll("#close")[0]
-        .addEventListener("click", function () {
-          document.querySelectorAll("#alert")[0].style.display = "none";
-        });
-    </script>
+    <div id="alert-box">알림창임</div>
+    <button id="alert-open-btn">알림창</button>
+    <button id="alert-close-btn">❌</button>
   </body>
+  <script src="./index.js"></script>
 </html>
