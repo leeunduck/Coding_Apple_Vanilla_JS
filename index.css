@@ -4,4 +4,9 @@
   color: white;
   border-radius: 5px;
   display: none;
+  margin-bottom: 2rem;
+}
+
+#alert-close-btn {
+  display: none;
 }
