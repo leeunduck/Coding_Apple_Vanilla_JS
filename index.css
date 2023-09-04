@@ -1,12 +1,32 @@
-#alert-box {
+#title {
   background-color: skyblue;
   padding: 20px;
   color: white;
   border-radius: 5px;
+}
+
+.list-group {
   display: none;
   margin-bottom: 2rem;
 }
 
 #alert-close-btn {
   display: none;
+}
+.show {
+  display: block;
+}
+
+.black-bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  padding: 20px;
+}
+.white-bg {
+  background: white;
+  border-radius: 5px;
+  padding: 30px;
 }
