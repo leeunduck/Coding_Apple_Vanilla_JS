@@ -26,5 +26,4 @@ function handlePassWordBox(text) {
   title.innerText = text;
   titleCloseBtn.style.display = "inline";
 }
-
 titleCloseBtn.addEventListener("click", handleCloseTitle);
