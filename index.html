@@ -7,9 +7,19 @@
     <title>코딩애플 Vanila JS</title>
   </head>
   <body>
-    <div id="alert-box">알림창임</div>
-    <button id="alert-open-btn">알림창</button>
+    <div id="alert-box"></div>
+    <button id="alert-open-btn" onclick="handleOpenTitle('알림창임')">
+      알림창
+    </button>
     <button id="alert-close-btn">❌</button>
+    <button id="alert-id-btn" onclick="handleIdBox('아이디를 입력하세요')">
+      로그인
+    </button>
+    <button
+      id="alert-password-btn"
+      onclick="handlePassWordBox('비밀번호를 입력하세요')">
+      비밀번호
+    </button>
   </body>
   <script src="./index.js"></script>
 </html>
