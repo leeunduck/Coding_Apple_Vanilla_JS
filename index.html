@@ -2,36 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./index.css" />
+    <title>코딩애플 Vanila JS</title>
   </head>
   <body>
-    <div class="alert-box" id="alert">
-      <p id="title">알림창임</p>
-      <button onclick="closeAlert('none')">닫기</button>
-    </div>
-
-    <button onclick="alertId('아이디를 입력하세요', 'block')">버튼1</button>
-    <button onclick="alertPassword('비밀번호를 입력하세요', 'block')">
-      버튼2
+    <div id="alert-box"></div>
+    <button id="alert-open-btn" onclick="handleOpenTitle('알림창임')">
+      알림창
     </button>
-
-    <script>
-      function alertId(text, display) {
-        document.getElementById("title").innerHTML = text;
-        document.getElementById("alert").style.display = display;
-      }
-
-      function alertPassword(text, display) {
-        document.getElementById("title").innerHTML = text;
-        document.getElementById("alert").style.display = display;
-      }
-
-      function closeAlert(display) {
-        document.getElementById("alert").style.display = display;
-      }
-    </script>
+    <button id="alert-close-btn">❌</button>
+    <button id="alert-id-btn" onclick="handleIdBox('아이디를 입력하세요')">
+      로그인
+    </button>
+    <button
+      id="alert-password-btn"
+      onclick="handlePassWordBox('비밀번호를 입력하세요')">
+      비밀번호
+    </button>
   </body>
+  <script src="./index.js"></script>
 </html>
