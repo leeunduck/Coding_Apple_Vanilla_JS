@@ -10,3 +10,10 @@
 #alert-close-btn {
   display: none;
 }
+
+.list-group {
+  display: none;
+}
+.show {
+  display: block;
+}
