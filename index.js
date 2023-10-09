@@ -8,6 +8,9 @@ const listGroup = document.querySelector(".list-group");
 const modalLoginBtn = document.querySelector("#modal-login");
 const blackBackGround = document.querySelector(".black-bg");
 const modalClose = document.querySelector("#close");
+const submitBtn = document.querySelector(".btn-primary");
+const modalIdInput = document.querySelector("#modal-id");
+const modalPassWordInput = document.querySelector("#modal-password");
 
 // 알림창 박스 열기
 function handleOpenTitle(text) {
@@ -51,7 +54,16 @@ function handleCloseModal() {
   blackBackGround.classList.remove("show-modal");
 }
 
+// input값이 공백이면 alert 아니면 전송
+function checkInput(event) {
+  if (modalIdInput.value == "") {
+    event.preventDefault();
+    alert("아이디를 입력하세요");
+  }
+}
+
 titleCloseBtn.addEventListener("click", handleCloseTitle);
 navToggle.addEventListener("click", handleListGroup);
 modalLoginBtn.addEventListener("click", handleModalLogin);
 modalClose.addEventListener("click", handleCloseModal);
+submitBtn.addEventListener("click", checkInput);
