@@ -5,6 +5,9 @@ const idBtn = document.querySelector("#alert-id-btn");
 const passWordBtn = document.querySelector("#alert-password-btn");
 const navToggle = document.querySelector(".navbar-toggler");
 const listGroup = document.querySelector(".list-group");
+const modalLoginBtn = document.querySelector("#modal-login");
+const blackBackGround = document.querySelector(".black-bg");
+const modalClose = document.querySelector("#close");
 
 // 알림창 박스 열기
 function handleOpenTitle(text) {
@@ -38,5 +41,17 @@ function handleListGroup() {
   listGroup.classList.toggle("show");
 }
 
+// Modal Login 열기
+function handleModalLogin() {
+  blackBackGround.classList.add("show-modal");
+}
+
+// Modal Login 닫기
+function handleCloseModal() {
+  blackBackGround.classList.remove("show-modal");
+}
+
 titleCloseBtn.addEventListener("click", handleCloseTitle);
 navToggle.addEventListener("click", handleListGroup);
+modalLoginBtn.addEventListener("click", handleModalLogin);
+modalClose.addEventListener("click", handleCloseModal);
