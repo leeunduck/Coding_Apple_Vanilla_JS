@@ -54,11 +54,17 @@ function handleCloseModal() {
   blackBackGround.classList.remove("show-modal");
 }
 
-// input값이 공백이면 alert 아니면 전송
+// id & password 공백체크, password 6자리 미만 체크
 function checkInput(event) {
   if (modalIdInput.value == "") {
     event.preventDefault();
     alert("아이디를 입력하세요");
+  } else if (modalPassWordInput.value == "") {
+    event.preventDefault();
+    alert("비밀번호를 입력하세요");
+  } else if (modalPassWordInput.value.length <= 6) {
+    event.preventDefault();
+    alert("비밀번호 7자리 이상 입력하세요");
   }
 }
 
