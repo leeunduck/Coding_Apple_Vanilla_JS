@@ -12,6 +12,13 @@
     <title>코딩애플 Vanila JS</title>
   </head>
   <body>
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <button class="btn btn-danger" id="close">닫기</button>
+      </div>
+    </div>
+
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <span class="navbar-brand">Navbar</span>
@@ -27,6 +34,7 @@
       <li class="list-group-item">A fourth item</li>
       <li class="list-group-item">And a fifth one</li>
     </ul>
+
     <div id="alert-box"></div>
     <button id="alert-open-btn" onclick="handleOpenTitle('알림창임')">
       알림창
@@ -40,6 +48,7 @@
       onclick="handlePassWordBox('비밀번호를 입력하세요')">
       비밀번호
     </button>
+    <button id="modal-login">모달 로그인</button>
   </body>
   <script src="./index.js"></script>
 </html>
