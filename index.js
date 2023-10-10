@@ -11,6 +11,7 @@ const modalClose = document.querySelector("#close");
 const submitBtn = document.querySelector(".btn-primary");
 const modalIdInput = document.querySelector("#modal-id");
 const modalPassWordInput = document.querySelector("#modal-password");
+const darkBtn = document.querySelector(".badge");
 
 // 알림창 박스 열기
 function handleOpenTitle(text) {
@@ -68,8 +69,24 @@ function checkInput(event) {
   }
 }
 
+// 버튼 누르면 배경화면 다크모드
+let darkCount = 1;
+function handleBgDark() {
+  darkCount += 1;
+  if (darkCount % 2 == 0) {
+    darkBtn.classList.remove("bg-dark");
+    darkBtn.classList.add("bg-light");
+    darkBtn.style.color = "black";
+  } else {
+    darkBtn.classList.remove("bg-light");
+    darkBtn.classList.add("bg-dark");
+    darkBtn.style.color = "white";
+  }
+}
+
 titleCloseBtn.addEventListener("click", handleCloseTitle);
 navToggle.addEventListener("click", handleListGroup);
 modalLoginBtn.addEventListener("click", handleModalLogin);
 modalClose.addEventListener("click", handleCloseModal);
 submitBtn.addEventListener("click", checkInput);
+darkBtn.addEventListener("click", handleBgDark);
