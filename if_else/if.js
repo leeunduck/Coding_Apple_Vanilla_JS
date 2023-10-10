@@ -1,12 +1,13 @@
-function game369() {
-  const userNumber = prompt("숫자를 입력하세요");
-  if (userNumber % 9 == 0) {
-    console.log("박수 박수");
-  } else if (userNumber % 3 == 0) {
-    console.log("박수");
+function test(score1, score2) {
+  console.log(typeof score1, typeof score2);
+  console.log(score1, score2);
+  if (score1 < 40 || score2 < 40) {
+    console.log("불합격");
+  } else if (score1 + score2 < 120) {
+    console.log("불합격");
   } else {
-    console.log("통과");
+    console.log("합격");
   }
 }
 
-game369();
+test(Number(prompt("점수1")), Number(prompt("점수2")));
