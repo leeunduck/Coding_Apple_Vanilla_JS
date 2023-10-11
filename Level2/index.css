@@ -39,3 +39,7 @@
   visibility: visible;
   opacity: 1;
 }
+
+.alert {
+  margin-top: 20px;
+}

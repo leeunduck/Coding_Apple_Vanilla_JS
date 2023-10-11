@@ -12,6 +12,8 @@ const submitBtn = document.querySelector(".btn-primary");
 const modalIdInput = document.querySelector("#modal-id");
 const modalPassWordInput = document.querySelector("#modal-password");
 const darkBtn = document.querySelector(".badge");
+const gifts = document.querySelector(".alert-danger");
+const timeSecond = gifts.querySelector("#time-second");
 
 // 알림창 박스 열기
 function handleOpenTitle(text) {
@@ -83,6 +85,22 @@ function handleBgDark() {
     darkBtn.style.color = "white";
   }
 }
+
+// 5초 뒤 div 사라짐 (setTimeout 함수)
+// setTimeout(function second_5() {
+//   gifts.style.display = "none";
+// }, 5000);
+
+// 1초마다 5라는 문자를 1씩 감소 0이 되면 <div>를 안보이게 처리
+let second = 5;
+setInterval(function textChange() {
+  second -= 1;
+  if (second >= 0) {
+    timeSecond.innerText = second;
+  } else {
+    gifts.style.display = "none";
+  }
+}, 1000);
 
 titleCloseBtn.addEventListener("click", handleCloseTitle);
 navToggle.addEventListener("click", handleListGroup);
