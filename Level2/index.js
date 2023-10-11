@@ -1,6 +1,15 @@
-var first = 360;
-var total = 0;
+const quizBtn = document.querySelector("#send-answer");
+const inputAnswer = document.querySelector("#answer");
 
-total = first + (first * 2) / 3 + (((first * 2) / 3) * 2) / 3;
+let conut = 0;
 
-console.log(total);
+function handleAnswer() {
+  conut += 1;
+  if (inputAnswer.value == 1335) {
+    alert("성공");
+  } else if (conut >= 3) {
+    alert("멍청이");
+  }
+}
+
+quizBtn.addEventListener("click", handleAnswer);
