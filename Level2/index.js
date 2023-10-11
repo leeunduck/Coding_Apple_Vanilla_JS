@@ -1,15 +1,11 @@
-const quizBtn = document.querySelector("#send-answer");
-const inputAnswer = document.querySelector("#answer");
+var money = 60000;
+var 미래예금액 = 0;
 
-let conut = 0;
-
-function handleAnswer() {
-  conut += 1;
-  if (inputAnswer.value == 1335) {
-    alert("성공");
-  } else if (conut >= 3) {
-    alert("멍청이");
-  }
+//여기에 코드짜보십시오
+if (money >= 50000) {
+  var 미래예금액 = money * 1.2 ** 2;
+} else if (money < 50000) {
+  var 미래예금액 = money * 1.15 ** 2;
 }
 
-quizBtn.addEventListener("click", handleAnswer);
+console.log(미래예금액);
