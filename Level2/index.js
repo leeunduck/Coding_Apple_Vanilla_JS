@@ -57,17 +57,25 @@ function handleCloseModal() {
   blackBackGround.classList.remove("show-modal");
 }
 
-// id & password 공백체크, password 6자리 미만 체크
+// id & password 공백체크, password 6자리 미만 체크 + 정규식표현(이메일형식 체크, 영어 대문자 체크)
 function checkInput(event) {
-  if (modalIdInput.value == "") {
+  const eMail = modalIdInput.value;
+  const eMailPassWord = modalPassWordInput.value;
+  if (eMail == "") {
     event.preventDefault();
     alert("아이디를 입력하세요");
-  } else if (modalPassWordInput.value == "") {
+  } else if (/\S+@\S+\.\S+/.test(eMail) == false) {
+    event.preventDefault();
+    alert("이메일 형식이 아닙니다");
+  } else if (eMailPassWord == "") {
     event.preventDefault();
     alert("비밀번호를 입력하세요");
-  } else if (modalPassWordInput.value.length <= 6) {
+  } else if (eMailPassWord.length <= 6) {
     event.preventDefault();
     alert("비밀번호 7자리 이상 입력하세요");
+  } else if (/[A-Z]/.test(eMailPassWord) == false) {
+    event.preventDefault();
+    alert("비밀번호에 영어 대문자를 넣으세요");
   }
 }
 
