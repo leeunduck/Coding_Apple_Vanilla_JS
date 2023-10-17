@@ -18,6 +18,8 @@ const slideContainer = document.querySelector(".slide-container");
 const carouselBtn1 = document.querySelector(".btn1");
 const carouselBtn2 = document.querySelector(".btn2");
 const carouselBtn3 = document.querySelector(".btn3");
+const carouselNext = document.querySelector(".next");
+const carouselPrev = document.querySelector(".prev");
 
 // 알림창 박스 열기
 function handleOpenTitle(text) {
@@ -115,18 +117,44 @@ setInterval(function textChange() {
 }, 1000);
 
 //캐러쉘 1번
+let nowPhoto = 0;
 function handleCarousel1() {
-  slideContainer.style.transform = "translateX(0vw)";
+  nowPhoto = 0;
+  slideContainer.style.transform = `translateX(-${nowPhoto}00vw)`;
 }
 
 //캐러쉘 2번
 function handleCarousel2() {
-  slideContainer.style.transform = "translateX(-100vw)";
+  nowPhoto = 1;
+  slideContainer.style.transform = `translateX(-${nowPhoto}00vw)`;
 }
 
 //캐러쉘 3번
 function handleCarousel3() {
-  slideContainer.style.transform = "translateX(-200vw)";
+  nowPhoto = 2;
+  slideContainer.style.transform = `translateX(-${nowPhoto}00vw)`;
+}
+
+//캐러쉘 Next버튼
+function handleCarouselNext() {
+  if (nowPhoto == 0) {
+    nowPhoto += 1;
+    slideContainer.style.transform = `translateX(-${nowPhoto}00vw)`;
+  } else if (nowPhoto == 1) {
+    nowPhoto += 1;
+    slideContainer.style.transform = `translateX(-${nowPhoto}00vw)`;
+  }
+}
+
+//캐러쉘 Prev버튼
+function handleCarouselPrev() {
+  if (nowPhoto == 2) {
+    nowPhoto -= 1;
+    slideContainer.style.transform = `translateX(-${nowPhoto}00vw)`;
+  } else if (nowPhoto == 1) {
+    nowPhoto -= 1;
+    slideContainer.style.transform = `translateX(-${nowPhoto}00vw)`;
+  }
 }
 
 titleCloseBtn.addEventListener("click", handleCloseTitle);
@@ -138,3 +166,5 @@ darkBtn.addEventListener("click", handleBgDark);
 carouselBtn1.addEventListener("click", handleCarousel1);
 carouselBtn2.addEventListener("click", handleCarousel2);
 carouselBtn3.addEventListener("click", handleCarousel3);
+carouselNext.addEventListener("click", handleCarouselNext);
+carouselPrev.addEventListener("click", handleCarouselPrev);
