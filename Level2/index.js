@@ -14,6 +14,10 @@ const modalPassWordInput = document.querySelector("#modal-password");
 const darkBtn = document.querySelector(".badge");
 const gifts = document.querySelector(".alert-danger");
 const timeSecond = gifts.querySelector("#time-second");
+const slideContainer = document.querySelector(".slide-container");
+const carouselBtn1 = document.querySelector(".btn1");
+const carouselBtn2 = document.querySelector(".btn2");
+const carouselBtn3 = document.querySelector(".btn3");
 
 // 알림창 박스 열기
 function handleOpenTitle(text) {
@@ -110,9 +114,27 @@ setInterval(function textChange() {
   }
 }, 1000);
 
+//캐러쉘 1번
+function handleCarousel1() {
+  slideContainer.style.transform = "translateX(0vw)";
+}
+
+//캐러쉘 2번
+function handleCarousel2() {
+  slideContainer.style.transform = "translateX(-100vw)";
+}
+
+//캐러쉘 3번
+function handleCarousel3() {
+  slideContainer.style.transform = "translateX(-200vw)";
+}
+
 titleCloseBtn.addEventListener("click", handleCloseTitle);
 navToggle.addEventListener("click", handleListGroup);
 modalLoginBtn.addEventListener("click", handleModalLogin);
 modalClose.addEventListener("click", handleCloseModal);
 submitBtn.addEventListener("click", checkInput);
 darkBtn.addEventListener("click", handleBgDark);
+carouselBtn1.addEventListener("click", handleCarousel1);
+carouselBtn2.addEventListener("click", handleCarousel2);
+carouselBtn3.addEventListener("click", handleCarousel3);
