@@ -157,6 +157,25 @@ function handleCarouselPrev() {
   }
 }
 
+//퀴즈1 (함수에 분과 초를 차례로 파라미터로 입력하면 ms단위로 바꿔서 뱉어주는 함수)
+function changeMs(minutes, seconds) {
+  const result = (minutes * 60 + seconds) * 1000;
+  return result;
+}
+console.log(changeMs(1, 30));
+console.log(changeMs(2, 10));
+
+//퀴즈2 가격을 파라미터로 입력하면 10% 할인가를 뱉는 함수
+function sale(money, bool) {
+  let result = money * 0.9;
+  if (bool == true) {
+    result = result - 1.5;
+  }
+  return result;
+}
+console.log(sale(70, false));
+console.log(sale(10, true));
+
 titleCloseBtn.addEventListener("click", handleCloseTitle);
 navToggle.addEventListener("click", handleListGroup);
 modalLoginBtn.addEventListener("click", handleModalLogin);
