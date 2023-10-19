@@ -44,21 +44,23 @@
       <li class="list-group-item">And a fifth one</li>
     </ul>
 
-    <div id="alert-box"></div>
-    <button id="alert-open-btn" onclick="handleOpenTitle('알림창임')">
-      알림창
-    </button>
-    <button id="alert-close-btn">❌</button>
-    <button id="alert-id-btn" onclick="handleIdBox('아이디를 입력하세요')">
-      로그인
-    </button>
-    <button
-      id="alert-password-btn"
-      onclick="handlePassWordBox('비밀번호를 입력하세요')">
-      비밀번호
-    </button>
-    <button id="modal-login">모달 로그인</button>
-    <button class="badge bg-dark">Dark 🔄</button>
+    <div id="level1-container">
+      <div id="alert-box"></div>
+      <button id="alert-open-btn" onclick="handleOpenTitle('알림창임')">
+        알림창
+      </button>
+      <button id="alert-close-btn">❌</button>
+      <button id="alert-id-btn" onclick="handleIdBox('아이디를 입력하세요')">
+        로그인
+      </button>
+      <button
+        id="alert-password-btn"
+        onclick="handlePassWordBox('비밀번호를 입력하세요')">
+        비밀번호
+      </button>
+      <button id="modal-login">모달 로그인</button>
+      <button class="badge bg-dark">Dark 🔄</button>
+    </div>
     <div class="alert alert-danger">
       <span id="time-second">5</span>초 이내 구매시 사은품 증정
     </div>
@@ -80,6 +82,14 @@
     <button class="btn3">3</button>
     <button class="prev"><</button>
     <button class="next">></button>
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas
+      voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat
+      sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur
+      praesentium exercitationem.
+    </div>
+
+    <div style="height: 2000px"></div>
   </body>
   <script src="./index.js"></script>
 </html>
