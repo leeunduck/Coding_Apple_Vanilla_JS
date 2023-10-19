@@ -20,6 +20,7 @@ const carouselBtn2 = document.querySelector(".btn2");
 const carouselBtn3 = document.querySelector(".btn3");
 const carouselNext = document.querySelector(".next");
 const carouselPrev = document.querySelector(".prev");
+const scrollChangeFont = document.querySelector(".navbar-brand");
 
 // 알림창 박스 열기
 function handleOpenTitle(text) {
@@ -176,6 +177,16 @@ function sale(money, bool) {
 console.log(sale(70, false));
 console.log(sale(10, true));
 
+//스크롤바를 100px 내리면 로고 폰트사이즈를 작게 만들어오십시오. 반대로 100px 미만으로 내리면 로고 폰트사이즈를 크게 만들어옵시다.
+function handleScroll() {
+  console.log(window.scrollY);
+  if (window.scrollY >= 100) {
+    scrollChangeFont.style.fontSize = "20px";
+  } else if (window.scrollY <= 100) {
+    scrollChangeFont.style.fontSize = "30px";
+  }
+}
+
 titleCloseBtn.addEventListener("click", handleCloseTitle);
 navToggle.addEventListener("click", handleListGroup);
 modalLoginBtn.addEventListener("click", handleModalLogin);
@@ -187,3 +198,4 @@ carouselBtn2.addEventListener("click", handleCarousel2);
 carouselBtn3.addEventListener("click", handleCarousel3);
 carouselNext.addEventListener("click", handleCarouselNext);
 carouselPrev.addEventListener("click", handleCarouselPrev);
+window.addEventListener("scroll", handleScroll);
