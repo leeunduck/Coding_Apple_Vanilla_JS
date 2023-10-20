@@ -187,10 +187,12 @@ function handleScroll1() {
   }
 }
 
+//회원약관 박스를 거의 끝까지 스크롤하면 alert를 띄워줍시다.
 function handleScroll2() {
   const scroll = scrollAlert.scrollTop;
   const height = scrollAlert.scrollHeight;
-  if (scroll + 100 == height) {
+  const clientHeight = scrollAlert.clientHeight;
+  if (scroll + clientHeight == height) {
     alert("끝입니다");
   }
 }
