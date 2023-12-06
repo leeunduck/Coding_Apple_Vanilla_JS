@@ -65,6 +65,13 @@ function handleCloseModal() {
   blackBackGround.classList.remove("show-modal");
 }
 
+// 검은색 배경 클릭시 Modal Login 닫기
+function handleCloseModal2(e) {
+  if (e.target == blackBackGround) {
+    blackBackGround.classList.remove("show-modal");
+  }
+}
+
 // id & password 공백체크, password 6자리 미만 체크 + 정규식표현(이메일형식 체크, 영어 대문자 체크)
 function checkInput(event) {
   const eMail = modalIdInput.value;
@@ -201,6 +208,7 @@ titleCloseBtn.addEventListener("click", handleCloseTitle);
 navToggle.addEventListener("click", handleListGroup);
 modalLoginBtn.addEventListener("click", handleModalLogin);
 modalClose.addEventListener("click", handleCloseModal);
+blackBackGround.addEventListener("click", handleCloseModal2);
 submitBtn.addEventListener("click", checkInput);
 darkBtn.addEventListener("click", handleBgDark);
 carouselBtn1.addEventListener("click", handleCarousel1);
