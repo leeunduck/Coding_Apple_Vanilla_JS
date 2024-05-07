@@ -1,4 +1,7 @@
-function test(score1, score2) {
+const score1 = Number(prompt("개론 점수를 입력하세요"));
+const score2 = Number(prompt("민법 점수를 입력하세요"));
+
+function testScore(number1, number2) {
   console.log(typeof score1, typeof score2);
   console.log(score1, score2);
   if (score1 < 0 || score1 > 100 || score2 < 0 || score2 > 100) {
@@ -12,4 +15,4 @@ function test(score1, score2) {
   }
 }
 
-test(Number(prompt("점수1")), Number(prompt("점수2")));
+testScore(score1, score2);
