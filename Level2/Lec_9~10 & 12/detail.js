@@ -8,6 +8,8 @@ const productsContent = contents[0];
 const informationContent = contents[1];
 const shippingContent = contents[2];
 
+const tabList = document.querySelector(".list");
+
 /* 상품설명 클릭시 오렌지색줄이 생기고 상품설명이 설명으로 나옴 */
 // function productsHandle() {
 //   informationButton.classList.remove("orange");
@@ -66,19 +68,27 @@ const shippingContent = contents[2];
 // }
 
 /* 위 3개의 기능을 for문으로 합치기 */
-for (let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", function () {
-    buttons.forEach((button) => {
-      button.classList.remove("orange");
-    });
+// for (let i = 0; i < buttons.length; i++) {
+//   buttons[i].addEventListener("click", function () {
+//     handleTap(i);
+//   });
+// }
 
-    contents.forEach((content) => {
-      content.classList.remove("show");
-    });
+tabList.addEventListener("click", function (e) {
+  handleTap(e.target.dataset.id);
+});
 
-    buttons[i].classList.add("orange");
-    contents[i].classList.add("show");
+function handleTap(i) {
+  buttons.forEach((button) => {
+    button.classList.remove("orange");
   });
+
+  contents.forEach((content) => {
+    content.classList.remove("show");
+  });
+
+  buttons[i].classList.add("orange");
+  contents[i].classList.add("show");
 }
 
 // productsButton.addEventListener("click", productsHandle);
