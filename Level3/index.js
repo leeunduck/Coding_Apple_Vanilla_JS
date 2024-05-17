@@ -7,6 +7,8 @@
 // price.innerHTML = car2.price[0];
 
 const formSelect = document.querySelectorAll(".form-select");
+let shirts = [95, 100, 105];
+let pants = [28, 30, 32];
 
 formSelect[0].addEventListener("input", handleSelect);
 
@@ -16,13 +18,17 @@ function handleSelect(e) {
   if (value == "셔츠") {
     formSelect[1].classList.remove("form-hide");
     formSelect[1].innerHTML = "";
-    let template = "<option>95</option><option>100</option>";
-    formSelect[1].insertAdjacentHTML("beforeend", template);
+    shirts.forEach(function (size) {
+      let optionTemplate = `<option>${size}</option>`;
+      formSelect[1].insertAdjacentHTML("beforeend", optionTemplate);
+    });
   } else if (value == "바지") {
     formSelect[1].classList.remove("form-hide");
     formSelect[1].innerHTML = "";
-    let template = "<option>28</option><option>30</option>";
-    formSelect[1].insertAdjacentHTML("beforeend", template);
+    pants.forEach(function (size) {
+      let optionTemplate = `<option>${size}</option>`;
+      formSelect[1].insertAdjacentHTML("beforeend", optionTemplate);
+    });
   } else {
     formSelect[1].classList.add("form-hide");
   }
