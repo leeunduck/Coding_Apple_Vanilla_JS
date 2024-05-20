@@ -6,30 +6,43 @@ let products = [
   { id: 2, price: 60000, title: "Black Monastery" },
 ];
 
-products.forEach((a, i) => {
-  let template = `<div class="col-sm-4">
-      <img src="https://via.placeholder.com/600" class="w-100">
-      <h5>${products[i].title}</h5>
-      <p>가격 : ${products[i].price}</p>
-    </div>`;
+function appendProducts(products) {
+  products.forEach((product) => {
+    let template = `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5>${product.title}</h5>
+        <p>가격 : ${product.price}</p>
+      </div>`;
+    card.insertAdjacentHTML("beforeend", template);
+  });
+}
 
-  card.insertAdjacentHTML("beforeend", template);
+appendProducts(products);
+
+let clickCount = 0;
+
+plusBtn.addEventListener("click", () => {
+  clickCount++;
+  if (clickCount == 1) {
+    getGoods1();
+  } else if (clickCount == 2) {
+    getGoods2();
+    plusBtn.style.display = "none";
+  }
 });
 
-plusBtn.addEventListener("click", getGoods);
-
-function getGoods() {
+function getGoods1() {
   fetch(`https://codingapple1.github.io/js/more1.json`)
     .then((response) => response.json())
-    .then(function (data) {
-      data.forEach((a, i) => {
-        let template = `<div class="col-sm-4">
-            <img src="https://via.placeholder.com/600" class="w-100">
-            <h5>${data[i].title}</h5>
-            <p>가격 : ${data[i].price}</p>
-          </div>`;
+    .then((data) => {
+      appendProducts(data);
+    });
+}
 
-        card.insertAdjacentHTML("beforeend", template);
-      });
+function getGoods2() {
+  fetch(`https://codingapple1.github.io/js/more2.json`)
+    .then((response) => response.json())
+    .then((data) => {
+      appendProducts(data);
     });
 }
