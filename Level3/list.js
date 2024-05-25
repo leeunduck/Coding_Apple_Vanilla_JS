@@ -1,5 +1,6 @@
 const card = document.querySelector(".row");
 const btnUnder = document.querySelector("#filter");
+const input = document.querySelector("#input");
 const plusBtn = document.querySelector("#more");
 const ascending = document.querySelector("#ascending");
 let products = [
@@ -58,10 +59,12 @@ function getGoods2() {
     });
 }
 
-/** 6만원이하 버튼 **/
+/** input 값 비교 **/
 btnUnder.addEventListener("click", () => {
+  let inputPrice = input.value;
+
   let newProduct = products.filter(function (a) {
-    return a.price <= 60000;
+    return a.price <= inputPrice;
   });
 
   card.innerHTML = "";
