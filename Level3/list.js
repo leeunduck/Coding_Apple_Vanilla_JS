@@ -1,102 +1,43 @@
 const card = document.querySelector(".row");
-const btnUnder = document.querySelector("#filter");
-const input = document.querySelector("#input");
-const plusBtn = document.querySelector("#more");
-const ascending = document.querySelector("#ascending");
+const productCard = document.querySelector(".products");
 let products = [
   { id: 0, price: 70000, title: "Blossom Dress" },
   { id: 1, price: 50000, title: "Springfield Shirt" },
   { id: 2, price: 60000, title: "Black Monastery" },
 ];
 
-/** 더보기 버튼 **/
-function appendProducts(products) {
-  products.sort(function (a, b) {
-    if (a.title < b.title) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+products.forEach((arr, i) => {
+  let template = `<div class="col-sm-4">
+      <img src="https://via.placeholder.com/600" class="w-100">
+      <h5>${products[i].title}</h5>
+      <p>가격 : ${products[i].price}</p><button class="buy">구매</button>
+    </div>`;
 
-  products.forEach((product) => {
-    let template = `<div class="col-sm-4">
-        <img src="https://via.placeholder.com/600" class="w-100">
-        <h5>${product.title}</h5>
-        <p>가격 : ${product.price}</p>
-        </div>`;
-    card.insertAdjacentHTML("beforeend", template);
-  });
-}
-
-appendProducts(products);
-
-let clickCount = 0;
-
-plusBtn.addEventListener("click", () => {
-  clickCount++;
-  if (clickCount == 1) {
-    getGoods1();
-  } else if (clickCount == 2) {
-    getGoods2();
-    plusBtn.style.display = "none";
-  }
+  card.insertAdjacentHTML("beforeend", template);
 });
 
-function getGoods1() {
-  fetch(`https://codingapple1.github.io/js/more1.json`)
-    .then((response) => response.json())
-    .then((data) => {
-      appendProducts(data);
-    });
-}
-
-function getGoods2() {
-  fetch(`https://codingapple1.github.io/js/more2.json`)
-    .then((response) => response.json())
-    .then((data) => {
-      appendProducts(data);
-    });
-}
-
-/** input 값 비교 **/
-btnUnder.addEventListener("click", () => {
-  let inputPrice = input.value;
-
-  let newProduct = products.filter(function (a) {
-    return a.price <= inputPrice;
-  });
-
-  card.innerHTML = "";
-
-  newProduct.forEach((newProduct) => {
-    let template = `<div class="col-sm-4">
-        <img src="https://via.placeholder.com/600" class="w-100">
-        <h5>${newProduct.title}</h5>
-        <p>가격 : ${newProduct.price}</p>
-      </div>`;
-    card.insertAdjacentHTML("beforeend", template);
+const buyBtn = document.querySelectorAll(".buy");
+buyBtn.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    let title =
+      e.target.previousElementSibling.previousElementSibling.textContent;
+    if (localStorage.getItem("cart") != null) {
+      let tookOut = JSON.parse(localStorage.cart);
+      tookOut.push(title);
+      localStorage.setItem("cart", JSON.stringify(tookOut));
+    } else {
+      localStorage.setItem("cart", JSON.stringify([title]));
+    }
   });
 });
 
-/** 가나다 정렬버튼 **/
-ascending.addEventListener("click", () => {
-  products.sort(function (a, b) {
-    if (a.title > b.title) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+let productOut = localStorage.getItem("cart");
+productOut = JSON.parse(productOut);
 
-  card.innerHTML = "";
+productOut.forEach((arr, i) => {
+  let template = `<div class="col-sm-4">
+      <h5>${productOut[i]}</h5>
+    </div>`;
 
-  products.forEach((product) => {
-    let template = `<div class="col-sm-4">
-        <img src="https://via.placeholder.com/600" class="w-100">
-        <h5>${product.title}</h5>
-        <p>가격 : ${product.price}</p>
-      </div>`;
-    card.insertAdjacentHTML("beforeend", template);
-  });
+  productCard.insertAdjacentHTML("beforeend", template);
 });
