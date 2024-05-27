@@ -21,23 +21,33 @@ buyBtn.forEach((button) => {
   button.addEventListener("click", (e) => {
     let title =
       e.target.previousElementSibling.previousElementSibling.textContent;
-    if (localStorage.getItem("cart") != null) {
-      let tookOut = JSON.parse(localStorage.cart);
-      tookOut.push(title);
-      localStorage.setItem("cart", JSON.stringify(tookOut));
+    let cart = JSON.parse(localStorage.getItem("cart")) || {};
+
+    if (cart[title]) {
+      // 이미 장바구니에 있는 경우, 개수를 증가시킴
+      cart[title]++;
     } else {
-      localStorage.setItem("cart", JSON.stringify([title]));
+      // 장바구니에 없는 경우, 새로 추가하고 개수를 1로 설정
+      cart[title] = 1;
     }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCartItems();
   });
 });
 
-let productOut = localStorage.getItem("cart");
-productOut = JSON.parse(productOut);
+function displayCartItems() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || {};
+  productCard.innerHTML = ""; // 기존 상품 목록을 비움
 
-productOut.forEach((arr, i) => {
-  let template = `<div class="col-sm-4">
-      <h5>${productOut[i]}</h5>
-    </div>`;
+  for (let title in cart) {
+    let template = `<div class="col-sm-4">
+        <h5>${title}</h5>
+        <p>수량: ${cart[title]}</p>
+      </div>`;
+    productCard.insertAdjacentHTML("beforeend", template);
+  }
+}
 
-  productCard.insertAdjacentHTML("beforeend", template);
-});
+// 페이지 로드 시 장바구니 상품 표시
+displayCartItems();
