@@ -57,25 +57,30 @@ let startCoordinate = 0;
 let pressDown = false;
 let pressNot = false;
 
-slideBox.addEventListener("mousedown", function (e) {
-  startCoordinate = e.clientX;
+slideBox.addEventListener("touchstart", function (e) {
+  startCoordinate = e.touches[0].clientX;
   pressDown = true;
 });
 
-slideBox.addEventListener("mousemove", function (e) {
+slideBox.addEventListener("touchmove", function (e) {
   if (pressDown == true) {
     slideContainer.style.transform = `translateX(${
-      e.clientX - startCoordinate
+      e.touches[0].clientX - startCoordinate
     }px)`;
   }
 });
 
-slideBox.addEventListener("mouseup", function (e) {
+slideBox.addEventListener("touchend", function (e) {
   pressDown = false;
 
-  if (e.clientX - startCoordinate < -100) {
+  if (e.changedTouches[0].clientX - startCoordinate < -100) {
     slideContainer.style.transform = `translateX(-100vw)`;
+    slideContainer.style.transition = `all 0.5s`;
   } else {
     slideContainer.style.transform = `translateX(0vw)`;
+    slideContainer.style.transition = `all 0.5s`;
   }
+  setTimeout(() => {
+    slideContainer.style.transition = "none";
+  }, 500);
 });
