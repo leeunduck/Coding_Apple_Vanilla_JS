@@ -1,35 +1,20 @@
-// const product = document.querySelector(".product");
-// const price = document.querySelector(".price");
+const cardBox = document.querySelectorAll(".card-box");
 
-// let car2 = { name: "소나타", price: [50000, 3000, 4000] };
+window.addEventListener("scroll", function () {
+  let height = window.scrollY;
+  console.log(height);
 
-// product.innerHTML = car2.name;
-// price.innerHTML = car2.price[0];
+  let y = (-1 / 500) * height + 115 / 50;
+  // 650~1150까지 스크롤바를 내리면,
+  // 모든카드가 opacity 1~0으로 서서히변경해야함
+  cardBox.forEach((a, i) => {
+    cardBox[i].style.opacity = y;
+  });
 
-const formSelect = document.querySelectorAll(".form-select");
-let shirts = [95, 100, 105];
-let pants = [28, 30, 32];
-
-formSelect[0].addEventListener("input", handleSelect);
-
-function handleSelect(e) {
-  let value = e.currentTarget.value;
-
-  if (value == "셔츠") {
-    formSelect[1].classList.remove("form-hide");
-    formSelect[1].innerHTML = "";
-    shirts.forEach(function (size) {
-      let optionTemplate = `<option>${size}</option>`;
-      formSelect[1].insertAdjacentHTML("beforeend", optionTemplate);
-    });
-  } else if (value == "바지") {
-    formSelect[1].classList.remove("form-hide");
-    formSelect[1].innerHTML = "";
-    pants.forEach(function (size) {
-      let optionTemplate = `<option>${size}</option>`;
-      formSelect[1].insertAdjacentHTML("beforeend", optionTemplate);
-    });
-  } else {
-    formSelect[1].classList.add("form-hide");
-  }
-}
+  // 650~1150까지 스크롤바를 내리면,
+  // 모든카드가 transform 1 ~ 0.9으로 서서히변경해야함
+  let z = (-1 / 5000) * 높이 + 565 / 500;
+  cardBox.forEach((a, i) => {
+    cardBox[i].style.transform = `scale(${z})`;
+  });
+});
