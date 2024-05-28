@@ -1,4 +1,5 @@
 const slideContainer = document.querySelector(".slide-container");
+const slideBox = document.querySelector(".slide-box");
 const carouselBtn1 = document.querySelector(".btn1");
 const carouselBtn2 = document.querySelector(".btn2");
 const carouselBtn3 = document.querySelector(".btn3");
@@ -51,3 +52,30 @@ function handleCarouselPrev() {
     slideContainer.style.transform = `translateX(-${nowPhoto}00vw)`;
   }
 }
+
+let startCoordinate = 0;
+let pressDown = false;
+let pressNot = false;
+
+slideBox.addEventListener("mousedown", function (e) {
+  startCoordinate = e.clientX;
+  pressDown = true;
+});
+
+slideBox.addEventListener("mousemove", function (e) {
+  if (pressDown == true) {
+    slideContainer.style.transform = `translateX(${
+      e.clientX - startCoordinate
+    }px)`;
+  }
+});
+
+slideBox.addEventListener("mouseup", function (e) {
+  pressDown = false;
+
+  if (e.clientX - startCoordinate < -100) {
+    slideContainer.style.transform = `translateX(-100vw)`;
+  } else {
+    slideContainer.style.transform = `translateX(0vw)`;
+  }
+});
